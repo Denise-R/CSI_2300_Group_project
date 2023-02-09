@@ -15,9 +15,6 @@ public class CSI2300_Project {
         System.out.println(message);
         
         
-        
-        
-        
         // creating a HashMap to match each letter to its position in the English alphabet 
         HashMap<Character,Integer> letterAssignment = new HashMap<Character,Integer>(){{
             put('a', 1);
