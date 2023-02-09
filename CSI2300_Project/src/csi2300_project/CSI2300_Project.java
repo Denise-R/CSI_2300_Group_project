@@ -16,6 +16,7 @@ public class CSI2300_Project {
         
         
         // creating a HashMap to match each letter to its position in the English alphabet 
+        // may want to do tis as a for loop to make code less repetative
         HashMap<Character,Integer> letterAssignment = new HashMap<Character,Integer>(){{
             put('a', 1);
             put('b', 2);
