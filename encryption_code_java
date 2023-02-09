@@ -45,7 +45,7 @@ public class CSI2300_Project {
             
             
             
-        }};
+        }}; // there may be a way to do this all in one line, but this is the best I got rn
         
         
         // turning the String message into a character array
