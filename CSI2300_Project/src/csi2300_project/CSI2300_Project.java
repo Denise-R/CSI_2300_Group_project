@@ -62,15 +62,21 @@ public class CSI2300_Project {
         
         // What we still need to do to finish the encryption: a for loop that contains steps 1-5
           // 1. for each value in charArray look up int (alphabet position) value in hashmap
-              // we will also want to use an if/else statment to 'continue' on not alphabetic characters (a-z) and execute steps 1-5 on any ith iteration a-z values 
-          // 2. add private key (shift number) to int value
-          // 3. look up char in hashMap using updated int value from step 2 (may want to make a new variable)
-          // 4. update char using index
+          for(int i = 0; i < charMessage.length; i++){
+              // we will also want to use an if/else statment to 'continue' on not alphabetic characters (a-z) and execute steps 1-5 on any ith iteration a-z values
+              int position = letterAssignment.get(charMessage[i]);
+              System.out.print(position + ",");
+              // 2. add private key (shift number) to int value
+              position = position + privateKey;
+              // 3. look up char in hashMap using updated int value from step 2 (may want to make a new variable)
+              // 4. update char using index
 
         
-          // 5. convert char array back to a string (completed)
-        String outputMessage = String.copyValueOf(charMessage);
-        System.out.println(outputMessage);
+              // 5. convert char array back to a string (completed)
+              String outputMessage = String.copyValueOf(charMessage);
+              System.out.println(outputMessage);
+          } 
+          
     }
     
 }
