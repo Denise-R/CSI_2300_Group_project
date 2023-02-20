@@ -17,38 +17,11 @@ public class CSI2300_Project {
         
         // creating a HashMap to match each letter to its position in the English alphabet 
         // may want to do tis as a for loop to make code less repetative
-        HashMap<Character,Integer> letterAssignment = new HashMap<Character,Integer>(){{
-            put('a', 1);
-            put('b', 2);
-            put('c', 3);
-            put('d', 4);
-            put('e', 5);
-            put('f', 6);
-            put('g', 7);
-            put('h', 8);
-            put('i', 9);
-            put('j', 10);
-            put('k', 11);
-            put('l', 12);
-            put('m', 13);
-            put('n', 14);
-            put('o', 15);
-            put('p', 16);
-            put('q', 17);
-            put('r', 18);
-            put('s', 19);
-            put('t', 20);
-            put('u', 21);
-            put('v', 22);
-            put('w', 23);
-            put('x', 24);
-            put('y', 25);
-            put('z', 26);
-            
-            
-            
-        }}; // there may be a way to do this all in one line, but this is the best I got rn
-        
+        HashMap<Character, Integer> letterAssignment = new HashMap<>();
+        for (char c = 'a'; c <= 'z'; c++) {
+        letterAssignment.put(c, c - 'a' + 1);
+        }
+
         
         // turning the String message into a character array
         char[] charMessage = message.toCharArray();
@@ -80,4 +53,3 @@ public class CSI2300_Project {
     }
     
 }
-
