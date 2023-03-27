@@ -77,10 +77,14 @@ public class CSI2300_Project {
     }
         
     public static void main(String[] args) {
+        //encryption example
         String encryptedMessage = encryptMessage();
-        System.out.println(encryptedMessage);
+        System.out.printf("%s\n\n", encryptedMessage);
+        
+        
+        // decryption example
         String decryptedMessage = decryptMessage(encryptedMessage);
-        System.out.println(decryptedMessage);
+        System.out.printf("%s\n\n", decryptedMessage);
     }
     
 }
