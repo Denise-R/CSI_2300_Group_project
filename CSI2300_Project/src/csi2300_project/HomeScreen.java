@@ -31,7 +31,6 @@ public class HomeScreen extends JFrame {
         JLabel usernameLabel = new JLabel("Username:");
         JLabel passwordLabel = new JLabel("Password:");
         usernameTextField = new JTextField(20);
-     
         passwordField = new JPasswordField(20);
         loginButton = new JButton("Login");
 
@@ -52,7 +51,6 @@ public class HomeScreen extends JFrame {
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
         loginPanel.add(loginButton, gbc);
-
         JMenuBar menuBar = new JMenuBar();
         JMenu fileMenu = new JMenu("Menu");
         JMenu helpMenu = new JMenu("Help");
@@ -84,7 +82,6 @@ howToUseMenuItem.addActionListener(new ActionListener() {
         String password = new String(passwordField.getPassword());
         if (users.containsKey(username) && users.get(username).equals(password)) {
             JOptionPane.showMessageDialog(HomeScreen.this, "Login successful!");
-            // Open the next screen here
             String[] responses = {"Encrypt Message", "Translate Message", "Cancel"};
             int selectedOption = JOptionPane.showOptionDialog(null, "Select Action", "Encryption Page", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, responses, 0);
             if(selectedOption == 0){
@@ -99,8 +96,6 @@ howToUseMenuItem.addActionListener(new ActionListener() {
         }
     }
 });
-
-        // Add "Add User" menu item action listener
         addUserMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -108,7 +103,6 @@ howToUseMenuItem.addActionListener(new ActionListener() {
             }
         });
     }
-
 private void addUser() {
     String username = JOptionPane.showInputDialog(this, "Enter a new username:");
     if (username == null || username.isEmpty()) {
@@ -125,8 +119,6 @@ private void addUser() {
     saveUserData();
     JOptionPane.showMessageDialog(this, "User " + username + " added successfully!");
 }
-    
-
     private void loadUserData() {
         try {
             File file = new File("user_data.txt");
@@ -147,7 +139,6 @@ private void addUser() {
             e.printStackTrace();
         }
     }
-
     private void saveUserData() {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("user_data.txt"));
@@ -160,7 +151,6 @@ private void addUser() {
             e.printStackTrace();
         }
     }
-
     public static void main(String[] args) {
         HomeScreen app = new HomeScreen();
         app.setVisible(true);
