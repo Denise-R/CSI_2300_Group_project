@@ -78,17 +78,27 @@ howToUseMenuItem.addActionListener(new ActionListener() {
 });
       
         loginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String username = usernameTextField.getText();
-                String password = new String(passwordField.getPassword());
-                if (users.containsKey(username) && users.get(username).equals(password)) {
-                    JOptionPane.showMessageDialog(HomeScreen.this, "Login successful!");
-                } else {
-                    JOptionPane.showMessageDialog(HomeScreen.this, "Invalid username or password");
-                }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String username = usernameTextField.getText();
+        String password = new String(passwordField.getPassword());
+        if (users.containsKey(username) && users.get(username).equals(password)) {
+            JOptionPane.showMessageDialog(HomeScreen.this, "Login successful!");
+            // Open the next screen here
+            String[] responses = {"Encrypt Message", "Translate Message", "Cancel"};
+            int selectedOption = JOptionPane.showOptionDialog(null, "Select Action", "Encryption Page", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, responses, 0);
+            if(selectedOption == 0){
+                String shiftTypeLabelText = "Message Encryption";
+                new MyFrame(shiftTypeLabelText, selectedOption);
+            }else if(selectedOption == 1){
+                String shiftTypeLabelText = "Message Translation";
+                new MyFrame(shiftTypeLabelText, selectedOption);
             }
-        });
+        } else {
+            JOptionPane.showMessageDialog(HomeScreen.this, "Invalid username or password");
+        }
+    }
+});
 
         // Add "Add User" menu item action listener
         addUserMenuItem.addActionListener(new ActionListener() {
