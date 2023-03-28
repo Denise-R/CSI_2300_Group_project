@@ -96,11 +96,8 @@ howToUseMenuItem.addActionListener(new ActionListener() {
         }
     }
 });
-        addUserMenuItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                addUser();
-            }
+        addUserMenuItem.addActionListener((ActionEvent e) -> {
+            addUser();
         });
     }
 private void addUser() {
@@ -125,30 +122,28 @@ private void addUser() {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] data = line.split(",");
-                if (data.length == 2) {
-                    users.put(data[0], data[1]);
-                    userData.add(line);
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    String[] data = line.split(",");
+                    if (data.length == 2) {
+                        users.put(data[0], data[1]);
+                        userData.add(line);
+                    }
                 }
             }
-            reader.close();
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
     private void saveUserData() {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("user_data.txt"));
-            for (String line : userData) {
-                writer.write(line);
-                writer.newLine();
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("user_data.txt"))) {
+                for (String line : userData) {
+                    writer.write(line);
+                    writer.newLine();
+                }
             }
-            writer.close();
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
     public static void main(String[] args) {
