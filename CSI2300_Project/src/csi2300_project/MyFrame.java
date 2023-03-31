@@ -1,5 +1,6 @@
 package csi2300_project;
 
+import static csi2300_project.CSI2300Project.optionPane;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -14,6 +15,7 @@ public class MyFrame extends JFrame implements ActionListener{
     JTextArea messageTextArea = new JTextArea();
     JButton keyButton = new JButton("Submit");
     JTextField keyTextField = new JTextField();
+    JButton options = new JButton("Message Options Page");
     boolean isMessageEditable = true;
     boolean isKeyEditable = true;
     
@@ -24,7 +26,6 @@ public class MyFrame extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // make 'x' operation valid to close the program
         this.setSize(800,800); // sets size of window
         this.setTitle("Message Encryption App"); // sets window title
-        //this.setIconImage(OULogo.getImage()); // changes icon on frame
         this.getContentPane().setBackground(Color.DARK_GRAY); // sets background of frame to grey
         
         // creating a encryption/ translation label and associated panel
@@ -44,6 +45,7 @@ public class MyFrame extends JFrame implements ActionListener{
         messagePanel.add(typeMessage);
         
         messagebButton.addActionListener(this); // allows the button to respond to being clicked
+        messagebButton.setSize(125, 30);
 
         // setting textArea preferences
         messageTextArea.setPreferredSize(new Dimension(675,300));
@@ -66,6 +68,7 @@ public class MyFrame extends JFrame implements ActionListener{
         keyPanel.add(typeKey);
         
         keyButton.addActionListener(this);
+        keyButton.setSize(125, 30);
 
         keyTextField.setPreferredSize(new Dimension(675,100));
         keyTextField.setFont(new Font(null, Font.BOLD, 20));
@@ -76,9 +79,13 @@ public class MyFrame extends JFrame implements ActionListener{
         keyPanel.add(keyTextField);
         keyPanel.add(keyButton);
         
+        options.addActionListener(this);
+        options.setBounds(580, 710, 170, 30);
+        
         this.add(namePanel);
         this.add(messagePanel);
         this.add(keyPanel);
+        this.add(options);
         this.setLayout(null);
         this.setVisible(true); // makes elements visable
     }
@@ -108,10 +115,20 @@ public class MyFrame extends JFrame implements ActionListener{
             encryptedText.setWrapStyleWord(true);
             encryptedText.setText("Shifted Message: " + newMessage);
             
+            // closing the frame
+            this.dispose();
+            
             // displaying the message using a JOptionPane popup
-            JOptionPane.showMessageDialog(null, encryptedText, "Message Encryption App", JOptionPane.PLAIN_MESSAGE);
+            String[] responses = {"Message Options Page","Exit Application"};
+            int selectedOption = JOptionPane.showOptionDialog(null, encryptedText, "Message Encryption App", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, responses, 0);
+            if(selectedOption == 0){
+                optionPane();
+            }
         }
-    }
-
-    
+        
+        if(e.getSource() == options){
+            this.dispose();
+            optionPane();
+        }
+    }  
 }

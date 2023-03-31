@@ -1,4 +1,3 @@
-
 package csi2300_project;
 
 public class MessageShift {
@@ -9,7 +8,7 @@ public class MessageShift {
         // turning the String message into a character array
         char[] charMessage = message.toCharArray();
 
-        // creating an alphabet string and array to look up position
+        // creating an alphabet string and array to look up letter position
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
         char[] alphabetArray = alphabet.toCharArray();
         
