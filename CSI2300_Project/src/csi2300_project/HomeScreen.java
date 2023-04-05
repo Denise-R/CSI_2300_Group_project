@@ -75,13 +75,14 @@ howToUseMenuItem.addActionListener(new ActionListener() {
     }
 });
       
-        loginButton.addActionListener(new ActionListener() {
+loginButton.addActionListener(new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
         String username = usernameTextField.getText();
         String password = new String(passwordField.getPassword());
         if (users.containsKey(username) && users.get(username).equals(password)) {
             JOptionPane.showMessageDialog(HomeScreen.this, "Login successful!");
+            setVisible(false); // hide the HomeScreen
             String[] responses = {"Encrypt Message", "Translate Message", "Cancel"};
             int selectedOption = JOptionPane.showOptionDialog(null, "Select Action", "Encryption Page", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, responses, 0);
             if(selectedOption == 0){
