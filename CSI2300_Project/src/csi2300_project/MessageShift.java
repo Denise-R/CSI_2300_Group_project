@@ -21,9 +21,9 @@ public class MessageShift {
             if(alphabet.contains(s)){
                 int index = 0;
                 if(x == 0){
-                    index = (alphabet.indexOf(charMessage[i]) + privateKey) % 26;
+                    index = (alphabet.indexOf(charMessage[i]) + privateKey) % 36;
                 }else if(x == 1){
-                    index = ((alphabet.indexOf(charMessage[i]) - privateKey) + 26) % 26;
+                    index = ((alphabet.indexOf(charMessage[i]) - privateKey) + 36) % 36;
                 }
                 char letter = alphabetArray[index];
                 encryptedMessage[i] = letter;

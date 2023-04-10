@@ -1,7 +1,7 @@
 package csi2300_project;
 import javax.swing.JOptionPane;
 
-public class CSI2300Project {
+public class OptionPane {
     
     public static void optionPane(){
         String[] responses = {"Encrypt Message", "Translate Message", "Cancel"};

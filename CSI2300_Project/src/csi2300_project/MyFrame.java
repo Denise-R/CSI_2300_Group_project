@@ -1,6 +1,6 @@
 package csi2300_project;
 
-import static csi2300_project.CSI2300Project.optionPane;
+import static csi2300_project.OptionPane.optionPane;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -15,7 +15,6 @@ public class MyFrame extends JFrame implements ActionListener{
     JTextArea messageTextArea = new JTextArea();
     JButton keyButton = new JButton("Submit");
     JTextField keyTextField = new JTextField();
-    JButton options = new JButton("Message Options Page");
     boolean isMessageEditable = true;
     boolean isKeyEditable = true;
     // Add variable for back button
@@ -84,13 +83,10 @@ public class MyFrame extends JFrame implements ActionListener{
         keyPanel.add(keyTextField);
         keyPanel.add(keyButton);
         
-        options.addActionListener(this);
-        options.setBounds(580, 710, 170, 30);
         
         this.add(namePanel);
         this.add(messagePanel);
         this.add(keyPanel);
-        this.add(options);
         this.setLayout(null);
         this.setVisible(true); // makes elements visable
     }
@@ -135,11 +131,6 @@ public class MyFrame extends JFrame implements ActionListener{
          optionPane();
     } else if (e.getSource() == messagebButton) {
     } else if (e.getSource() == keyButton) {     
-    } else if (e.getSource() == options) {
-    }
-        if(e.getSource() == options){
-            this.dispose();
-            optionPane();
-        }
+    } 
     }  
 }

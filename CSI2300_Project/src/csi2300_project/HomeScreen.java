@@ -103,29 +103,29 @@ public class HomeScreen extends JFrame {
                 String username = usernameTextField.getText();
                 String password = new String(passwordField.getPassword());
         
-       if (users.containsKey(username) && users.get(username).equals(password)) {
-    // If the entered username and password match with the stored values
-    JOptionPane.showMessageDialog(HomeScreen.this, "Login successful!");
-    setVisible(false); // hide the HomeScreen
-    String[] responses = {"Encrypt Message", "Translate Message", "Cancel"};
-    int selectedOption = JOptionPane.showOptionDialog(null, "Select Action", "Encryption Page", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, responses, 0);
-    // Show a dialog box with options and store the selected option
-    if(selectedOption == 0){
-        String shiftTypeLabelText = "Message Encryption";
-        new MyFrame(shiftTypeLabelText, selectedOption); // Create a new MyFrame object with the selected option
-    }else if(selectedOption == 1){
-        String shiftTypeLabelText = "Message Translation";
-        new MyFrame(shiftTypeLabelText, selectedOption); // Create a new MyFrame object with the selected option
-    }
-} else {
-    // If the entered username or password is invalid
-    JOptionPane.showMessageDialog(HomeScreen.this, "Invalid username or password");
-}
-    }
-});
-        addUserMenuItem.addActionListener((ActionEvent e) -> {
-            addUser();
+        if (users.containsKey(username) && users.get(username).equals(password)) {
+            // If the entered username and password match with the stored values
+            JOptionPane.showMessageDialog(HomeScreen.this, "Login successful!");
+            setVisible(false); // hide the HomeScreen
+            String[] responses = {"Encrypt Message", "Translate Message", "Cancel"};
+            int selectedOption = JOptionPane.showOptionDialog(null, "Select Action", "Encryption Page", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, responses, 0);
+            // Show a dialog box with options and store the selected option
+            if(selectedOption == 0){
+                String shiftTypeLabelText = "Message Encryption";
+                new MyFrame(shiftTypeLabelText, selectedOption); // Create a new MyFrame object with the selected option
+            }else if(selectedOption == 1){
+                String shiftTypeLabelText = "Message Translation";
+                new MyFrame(shiftTypeLabelText, selectedOption); // Create a new MyFrame object with the selected option
+            }
+        } else {
+            // If the entered username or password is invalid
+            JOptionPane.showMessageDialog(HomeScreen.this, "Invalid username or password");
+        }
+            }
         });
+            addUserMenuItem.addActionListener((ActionEvent e) -> {
+                addUser();
+            });
     }
 private void addUser() {
     String username = JOptionPane.showInputDialog(this, "Enter a new username:");
@@ -148,7 +148,7 @@ private void addUser() {
     JOptionPane.showMessageDialog(this, "User " + username + " added successfully!");
     // Show a success message with the newly added username
 }
-   private void loadUserData() {
+private void loadUserData() {
     try {
         File file = new File("user_data.txt");
         if (!file.exists()) {
