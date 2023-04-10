@@ -9,7 +9,7 @@ public class MessageShift {
         char[] charMessage = message.toCharArray();
 
         // creating an alphabet string and array to look up letter position
-        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
         char[] alphabetArray = alphabet.toCharArray();
         
         // shifting message by private key
