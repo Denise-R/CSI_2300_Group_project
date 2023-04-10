@@ -18,6 +18,9 @@ public class MyFrame extends JFrame implements ActionListener{
     JButton options = new JButton("Message Options Page");
     boolean isMessageEditable = true;
     boolean isKeyEditable = true;
+    // Add class variable for back button
+JButton backButton = new JButton("Back");
+    
     
     MyFrame(String shiftTypeLabelText, int selectedOption){
         shiftType = selectedOption;
@@ -43,7 +46,10 @@ public class MyFrame extends JFrame implements ActionListener{
         messagePanel.setBackground(Color.white);
         messagePanel.setBounds(50, 100, 700, 400);
         messagePanel.add(typeMessage);
-        
+         // Create a back button
+    backButton.addActionListener(this);
+    backButton.setBounds(50, 710, 100, 30);
+    this.add(backButton);
         messagebButton.addActionListener(this); // allows the button to respond to being clicked
         messagebButton.setSize(125, 30);
 
@@ -89,6 +95,7 @@ public class MyFrame extends JFrame implements ActionListener{
         this.setLayout(null);
         this.setVisible(true); // makes elements visable
     }
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -125,6 +132,20 @@ public class MyFrame extends JFrame implements ActionListener{
                 optionPane();
             }
         }
+         if (e.getSource() == backButton) {
+        // Handle back button action
+        this.dispose();
+        // Call the appropriate method to go back to the previous screen
+        // For example, if you want to go back to the options page, you can call optionPane() method
+        optionPane();
+    } else if (e.getSource() == messagebButton) {
+        // ... existing code ...
+    } else if (e.getSource() == keyButton) {
+        // ... existing code ...
+    } else if (e.getSource() == options) {
+        // ... existing code ...
+    }
+
         
         if(e.getSource() == options){
             this.dispose();
