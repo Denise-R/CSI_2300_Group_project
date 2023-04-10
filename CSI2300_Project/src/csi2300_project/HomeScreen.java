@@ -176,7 +176,6 @@ private void addUser() {
             }
         }
     } catch (IOException e) {
-        // Empty catch block to handle IOException silently
     }
 }
     public static void main(String[] args) {
