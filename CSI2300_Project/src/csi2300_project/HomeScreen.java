@@ -92,7 +92,7 @@ public class HomeScreen extends JFrame {
                 JOptionPane.showMessageDialog(HomeScreen.this,
                         "Welcome to the Encryption Messaging Application!\n\n"
                                 + "After you have created a username and password, you are prompted with a text box and value key.\n"
-                                + "Insert what you would like encrypted and insert a key value. Once you are ready to Encrypt your message, press Encrypt.\n");
+                                + "Insert what you would like encrypted and insert a key value (1-9). Once you are ready to Encrypt your message, press Encrypt.\n");
             }
         });
 
